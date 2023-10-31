@@ -13,7 +13,7 @@
             <a href="/login">LogIn</a>
         </div>
         <hr>
-        {% with messages = get_flashed_messages() %}
+        {% with messages = get_flashed_messages() %} <!--  The get_flashed_messages() function comes from Flask and returns a list of all the messages that have been registered with flash() -->
         {% if messages %}
         <ul>
             {% for message in messages %}
