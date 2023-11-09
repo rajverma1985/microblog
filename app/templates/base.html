@@ -10,7 +10,12 @@
     <body>
         <div>Microblog:
             <a href="{{url_for('index')}}">Home</a>
+            <a href="{{url_for('about_us')}}">About Us</a>
+            {% if current_user.is_anonymous %}
             <a href="{{url_for('login')}}">LogIn</a>
+            {% else %}
+            <a href="{{ url_for('logout') }}">Logout</a>
+            {% endif %}
         </div>
         <hr>
         {% with messages = get_flashed_messages() %} <!--  The get_flashed_messages() function comes from Flask and returns a list of all the messages that have been registered with flash() -->

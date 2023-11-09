@@ -1,15 +1,14 @@
 from app import app
-from flask import render_template, flash, redirect, url_for
+from flask import render_template, flash, redirect, url_for, session, request
 from app.forms import LoginForm
 from app.models import User
-from flask_login import current_user, login_user
+from flask_login import current_user, login_user, login_required, logout_user
 
 
 @app.route('/')
 @app.route('/index')
+@login_required
 def index():
-    user = {'username': 'Raj Verma'}
-    # adding dummy posts for testing without DB
     posts = [
         {
             'author': {'username': 'John'},
@@ -20,7 +19,14 @@ def index():
             'body': 'The Avengers movie was so cool!'
         }
     ]
-    return render_template('index.html', title='Home', user=user, posts=posts)
+    return render_template('index.html', title='Home', posts=posts)
+
+
+@app.route('/about')
+@login_required
+def about_us():
+    print(request.json())
+    return render_template('index.html', title='About Us')
 
 
 # for deleting a user you can always user: User.query.filter_by(id=1).delete() e.g
@@ -37,3 +43,9 @@ def login():
         login_user(user, remember=form.remember_me.data)
         return redirect(url_for('index'))
     return render_template('login.html', title='Sign In', form=form)
+
+
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('index'))
