@@ -3,7 +3,9 @@
 {% block content %}
 <h1>testing this stuff if it comes up</h1>
     <h1>Hi, {{ current_user.username }}!</h1>
-    {% for post in posts %}
-    <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
-    {% endfor %}
+    <div>
+      <p>Hi this is some test content available to users
+        <b>About us, no variables yet</b>
+      </p>
+    </div>
 {% endblock %}
