@@ -26,7 +26,7 @@ class User(UserMixin, db.Model):
         return check_password_hash(self.password_hash, password)
 
     def __repr__(self):
-        return '<username: {}, email: {}>'.format(self.username, self.email)
+        return '<username: {}, email: {}'.format(self.username, self.email)
 
 
 class Post(db.Model):
