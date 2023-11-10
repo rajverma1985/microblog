@@ -42,8 +42,9 @@ def login():
             return redirect(url_for('login'))
         login_user(user, remember=form.remember_me.data)
         next_page = request.args.get('next')
+        # To determine if the URL is relative or absolute, We parse it with Werkzeug's url_parse() function and
+        # then check if the netloc component is set or not.
         if not next_page or parse.urlparse(next_page).netloc != '':
-            print(parse.urlparse(next_page).netloc)
             next_page = url_for('index')
         return redirect(next_page)
     return render_template('login.html', title='Sign In', form=form)
