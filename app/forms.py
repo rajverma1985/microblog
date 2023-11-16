@@ -35,3 +35,6 @@ class ProfileForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     about_me = TextAreaField('About Me', validators=[Length(min=10, max=250)])
     submit = SubmitField('Update Profile')
+
+    # def __init__(self, old_user, *args, **kwargs):
+    #     super(ProfileForm, self)
