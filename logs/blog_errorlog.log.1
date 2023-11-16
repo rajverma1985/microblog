@@ -1,0 +1,106 @@
+2023-11-16 22:48:34,918 ERROR: Exception on /edit_profile [POST] [in /Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/app.py:825]
+Traceback (most recent call last):
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/sql/base.py", line 2191, in _entity_namespace_key
+    return getattr(ns, key)  # type: ignore
+           ^^^^^^^^^^^^^^^^
+AttributeError: type object 'User' has no attribute 'User'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/app/routes.py", line 93, in edit_profile
+    if form.validate_on_submit():
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask_wtf/form.py", line 86, in validate_on_submit
+    return self.is_submitted() and self.validate(extra_validators=extra_validators)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/wtforms/form.py", line 329, in validate
+    return super().validate(extra)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/wtforms/form.py", line 146, in validate
+    if not field.validate(self, extra):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/wtforms/fields/core.py", line 246, in validate
+    stop_validation = self._run_validation_chain(form, chain)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/wtforms/fields/core.py", line 266, in _run_validation_chain
+    validator(form, self)
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/app/forms.py", line 45, in validate_username
+    user = User.query.filter_by(User=self.username.data).first()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2004, in filter_by
+    _entity_namespace_key(from_entity, key) == value
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/sql/base.py", line 2193, in _entity_namespace_key
+    raise exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: Entity namespace for "user" has no property "User"
+2023-11-16 22:49:41,804 INFO: Raj's Blog startup [in /Volumes/data/devtech/projects/pythonProject/microblog/app/__init__.py:42]
+2023-11-16 22:49:49,405 ERROR: Exception on /edit_profile [POST] [in /Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/app.py:825]
+Traceback (most recent call last):
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/sql/base.py", line 2191, in _entity_namespace_key
+    return getattr(ns, key)  # type: ignore
+           ^^^^^^^^^^^^^^^^
+AttributeError: type object 'User' has no attribute 'User'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/app/routes.py", line 93, in edit_profile
+    if form.validate_on_submit():
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask_wtf/form.py", line 86, in validate_on_submit
+    return self.is_submitted() and self.validate(extra_validators=extra_validators)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/wtforms/form.py", line 329, in validate
+    return super().validate(extra)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/wtforms/form.py", line 146, in validate
+    if not field.validate(self, extra):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/wtforms/fields/core.py", line 246, in validate
+    stop_validation = self._run_validation_chain(form, chain)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/wtforms/fields/core.py", line 266, in _run_validation_chain
+    validator(form, self)
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/app/forms.py", line 45, in validate_username
+    user = User.query.filter_by(User=username.data).first()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2004, in filter_by
+    _entity_namespace_key(from_entity, key) == value
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/sql/base.py", line 2193, in _entity_namespace_key
+    raise exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: Entity namespace for "user" has no property "User"
+2023-11-16 22:52:22,083 INFO: Raj's Blog startup [in /Volumes/data/devtech/projects/pythonProject/microblog/app/__init__.py:42]
+2023-11-16 22:55:45,333 INFO: Raj's Blog startup [in /Volumes/data/devtech/projects/pythonProject/microblog/app/__init__.py:42]
+2023-11-16 23:00:01,915 INFO: Raj's Blog startup [in /Volumes/data/devtech/projects/pythonProject/microblog/app/__init__.py:42]
