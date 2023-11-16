@@ -31,10 +31,20 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Login')
 
 
-class ProfileForm(FlaskForm):
+class EditProfileForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     about_me = TextAreaField('About Me', validators=[Length(min=10, max=250)])
     submit = SubmitField('Update Profile')
 
-    # def __init__(self, old_user, *args, **kwargs):
-    #     super(ProfileForm, self)
+    def __init__(self, old_username, *args, **kwargs):
+        super(EditProfileForm, self).__init__(*args, **kwargs)
+        self.old_username = old_username
+
+    # **IMP NOTE: This is a special prefix which automatically get checked when using flask forms. If a method has
+    # validate_ in front of it, it gets checked during validation calls. like this is view function edit_profile
+    # form.validate_on_submit()**
+    def validate_username(self, new_username):
+        if new_username.data != self.old_username:
+            user = User.query.filter_by(username=self.username.data).first()
+            if user is not None:
+                raise ValidationError("Username in use, please user another username.")

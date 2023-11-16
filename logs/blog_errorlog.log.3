@@ -1,4 +1,4 @@
-2023-11-16 23:00:09,569 ERROR: Exception on /edit_profile [POST] [in /Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/app.py:825]
+2023-11-15 22:38:01,505 ERROR: Exception on /edit_profile [POST] [in /Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/app.py:825]
 Traceback (most recent call last):
   File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
     self.dialect.do_execute(
@@ -21,10 +21,7 @@ Traceback (most recent call last):
   File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 852, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask_login/utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/app/routes.py", line 96, in edit_profile
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/app/routes.py", line 95, in edit_profile
     db.session.commit()
   File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/scoping.py", line 597, in commit
     return self._proxied.commit()
@@ -81,6 +78,7 @@ Traceback (most recent call last):
   File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
     cursor.execute(statement, parameters)
 sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: user.username
-[SQL: UPDATE user SET username=? WHERE user.id = ?]
-[parameters: ('susi', 3)]
+[SQL: UPDATE user SET username=?, about_me=? WHERE user.id = ?]
+[parameters: ('susi', 'This is my new profile page which is working fine now. Whats up? :)!', 3)]
 (Background on this error at: https://sqlalche.me/e/20/gkpj)
+2023-11-15 22:41:28,535 INFO: Raj's Blog startup [in /Volumes/data/devtech/projects/pythonProject/microblog/app/__init__.py:43]
