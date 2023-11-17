@@ -1,9 +1,10 @@
-2023-11-16 22:48:34,918 ERROR: Exception on /edit_profile [POST] [in /Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/app.py:825]
+2023-11-16 23:00:09,569 ERROR: Exception on /edit_profile [POST] [in /Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/app.py:825]
 Traceback (most recent call last):
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/sql/base.py", line 2191, in _entity_namespace_key
-    return getattr(ns, key)  # type: ignore
-           ^^^^^^^^^^^^^^^^
-AttributeError: type object 'User' has no attribute 'User'
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: user.username
 
 The above exception was the direct cause of the following exception:
 
@@ -23,84 +24,74 @@ Traceback (most recent call last):
   File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask_login/utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/app/routes.py", line 93, in edit_profile
-    if form.validate_on_submit():
-       ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask_wtf/form.py", line 86, in validate_on_submit
-    return self.is_submitted() and self.validate(extra_validators=extra_validators)
-                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/wtforms/form.py", line 329, in validate
-    return super().validate(extra)
-           ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/wtforms/form.py", line 146, in validate
-    if not field.validate(self, extra):
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/wtforms/fields/core.py", line 246, in validate
-    stop_validation = self._run_validation_chain(form, chain)
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/wtforms/fields/core.py", line 266, in _run_validation_chain
-    validator(form, self)
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/app/forms.py", line 45, in validate_username
-    user = User.query.filter_by(User=self.username.data).first()
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2004, in filter_by
-    _entity_namespace_key(from_entity, key) == value
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/sql/base.py", line 2193, in _entity_namespace_key
-    raise exc.InvalidRequestError(
-sqlalchemy.exc.InvalidRequestError: Entity namespace for "user" has no property "User"
-2023-11-16 22:49:41,804 INFO: Raj's Blog startup [in /Volumes/data/devtech/projects/pythonProject/microblog/app/__init__.py:42]
-2023-11-16 22:49:49,405 ERROR: Exception on /edit_profile [POST] [in /Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/app.py:825]
-Traceback (most recent call last):
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/sql/base.py", line 2191, in _entity_namespace_key
-    return getattr(ns, key)  # type: ignore
-           ^^^^^^^^^^^^^^^^
-AttributeError: type object 'User' has no attribute 'User'
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 1455, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 869, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 867, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 852, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask_login/utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/app/routes.py", line 93, in edit_profile
-    if form.validate_on_submit():
-       ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask_wtf/form.py", line 86, in validate_on_submit
-    return self.is_submitted() and self.validate(extra_validators=extra_validators)
-                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/wtforms/form.py", line 329, in validate
-    return super().validate(extra)
-           ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/wtforms/form.py", line 146, in validate
-    if not field.validate(self, extra):
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/wtforms/fields/core.py", line 246, in validate
-    stop_validation = self._run_validation_chain(form, chain)
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/wtforms/fields/core.py", line 266, in _run_validation_chain
-    validator(form, self)
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/app/forms.py", line 45, in validate_username
-    user = User.query.filter_by(User=username.data).first()
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2004, in filter_by
-    _entity_namespace_key(from_entity, key) == value
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/sql/base.py", line 2193, in _entity_namespace_key
-    raise exc.InvalidRequestError(
-sqlalchemy.exc.InvalidRequestError: Entity namespace for "user" has no property "User"
-2023-11-16 22:52:22,083 INFO: Raj's Blog startup [in /Volumes/data/devtech/projects/pythonProject/microblog/app/__init__.py:42]
-2023-11-16 22:55:45,333 INFO: Raj's Blog startup [in /Volumes/data/devtech/projects/pythonProject/microblog/app/__init__.py:42]
-2023-11-16 23:00:01,915 INFO: Raj's Blog startup [in /Volumes/data/devtech/projects/pythonProject/microblog/app/__init__.py:42]
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/app/routes.py", line 96, in edit_profile
+    db.session.commit()
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/scoping.py", line 597, in commit
+    return self._proxied.commit()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1967, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1256, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1231, in _prepare_impl
+    self.session.flush()
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4310, in flush
+    self._flush(objects)
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4445, in _flush
+    with util.safe_reraise():
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4406, in _flush
+    flush_context.execute()
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 85, in save_obj
+    _emit_update_statements(
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 909, in _emit_update_statements
+    c = connection.execute(
+        ^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: user.username
+[SQL: UPDATE user SET username=? WHERE user.id = ?]
+[parameters: ('susi', 3)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2023-11-16 23:32:34,822 INFO: Raj's Blog startup [in /Volumes/data/devtech/projects/pythonProject/microblog/app/__init__.py:42]
+2023-11-16 23:52:23,947 INFO: Raj's Blog startup [in /Volumes/data/devtech/projects/pythonProject/microblog/app/__init__.py:42]
+2023-11-16 23:52:46,641 INFO: Raj's Blog startup [in /Volumes/data/devtech/projects/pythonProject/microblog/app/__init__.py:42]
+2023-11-16 23:52:55,341 INFO: Raj's Blog startup [in /Volumes/data/devtech/projects/pythonProject/microblog/app/__init__.py:42]
+2023-11-16 23:53:14,889 INFO: Raj's Blog startup [in /Volumes/data/devtech/projects/pythonProject/microblog/app/__init__.py:42]
+2023-11-16 23:53:21,874 INFO: Raj's Blog startup [in /Volumes/data/devtech/projects/pythonProject/microblog/app/__init__.py:42]
+2023-11-16 23:53:31,327 INFO: Raj's Blog startup [in /Volumes/data/devtech/projects/pythonProject/microblog/app/__init__.py:42]
+2023-11-16 23:53:44,464 INFO: Raj's Blog startup [in /Volumes/data/devtech/projects/pythonProject/microblog/app/__init__.py:42]
+2023-11-16 23:53:53,430 INFO: Raj's Blog startup [in /Volumes/data/devtech/projects/pythonProject/microblog/app/__init__.py:42]
+2023-11-16 23:53:57,239 INFO: Raj's Blog startup [in /Volumes/data/devtech/projects/pythonProject/microblog/app/__init__.py:42]
+2023-11-17 23:17:29,905 INFO: Raj's Blog startup [in /Volumes/data/devtech/projects/pythonProject/microblog/app/__init__.py:42]
