@@ -1,4 +1,5 @@
-2023-11-15 22:41:36,207 ERROR: Exception on /edit_profile [POST] [in /Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/app.py:825]
+2023-11-15 22:36:02,252 INFO: Raj's Blog startup [in /Volumes/data/devtech/projects/pythonProject/microblog/app/__init__.py:43]
+2023-11-15 22:36:18,057 ERROR: Exception on /edit_profile [POST] [in /Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/app.py:825]
 Traceback (most recent call last):
   File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
     self.dialect.do_execute(
@@ -81,40 +82,4 @@ sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed
 [SQL: UPDATE user SET username=?, about_me=? WHERE user.id = ?]
 [parameters: ('susi', 'This is my new profile page which is working fine now. Whats up? :)!', 3)]
 (Background on this error at: https://sqlalche.me/e/20/gkpj)
-2023-11-16 22:45:50,398 INFO: Raj's Blog startup [in /Volumes/data/devtech/projects/pythonProject/microblog/app/__init__.py:42]
-2023-11-16 22:46:03,632 ERROR: Exception on /edit_profile [POST] [in /Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/app.py:825]
-Traceback (most recent call last):
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 1455, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 869, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 867, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 852, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask_login/utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/app/routes.py", line 93, in edit_profile
-    if form.validate_on_submit():
-       ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask_wtf/form.py", line 86, in validate_on_submit
-    return self.is_submitted() and self.validate(extra_validators=extra_validators)
-                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/wtforms/form.py", line 329, in validate
-    return super().validate(extra)
-           ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/wtforms/form.py", line 146, in validate
-    if not field.validate(self, extra):
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/wtforms/fields/core.py", line 246, in validate
-    stop_validation = self._run_validation_chain(form, chain)
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/wtforms/fields/core.py", line 266, in _run_validation_chain
-    validator(form, self)
-TypeError: EditProfileForm.validate_username() takes 1 positional argument but 2 were given
-2023-11-16 22:48:25,187 INFO: Raj's Blog startup [in /Volumes/data/devtech/projects/pythonProject/microblog/app/__init__.py:42]
+2023-11-15 22:37:52,599 INFO: Raj's Blog startup [in /Volumes/data/devtech/projects/pythonProject/microblog/app/__init__.py:43]
