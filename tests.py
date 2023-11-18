@@ -1,5 +1,7 @@
 import os
 
+# By setting the DATABASE_URL environment variable to sqlite://, I change the application configuration
+# to direct SQLAlchemy to use an in-memory SQLite database during the tests.
 os.environ['DATABASE_URL'] = 'sqlite://'
 
 from datetime import datetime, timedelta
@@ -9,6 +11,8 @@ from app.models import User, Post
 
 
 class UserModelCase(unittest.TestCase):
+    # The setUp() and tearDown() methods are special methods that the unit
+    # testing framework executes before and after each test respectively.
     def setUp(self):
         self.app_context = app.app_context()
         self.app_context.push()
