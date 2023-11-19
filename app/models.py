@@ -4,15 +4,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from hashlib import md5
 
-
-# The user loader is registered with Flask-Login with the @login.user_loader decorator.
-# The id that Flask-Login passes to the function as an argument is going to be a string,
-# so databases that use numeric IDs need to convert the string to integer as you see above.
-@login.user_loader
-def load_user(id):
-    return User.query.get(int(id))
-
-
 followers = db.Table(
     'followers',
     db.Column('follower_id', db.Integer, db.ForeignKey('user.id')),
@@ -54,7 +45,8 @@ class User(UserMixin, db.Model):
 
     # here in the below query we are invoking the join operation on the posts table.
     def followed_posts(self):
-        followed = Post.query.join(followers, (followers.c.following_id == Post.user_id)).filter(followers.c.follower_id == self.id)
+        followed = Post.query.join(followers, (followers.c.following_id == Post.user_id)).filter(
+            followers.c.follower_id == self.id)
         own_posts = Post.query.filter_by(user_id=self.id)
         return followed.union(own_posts).order_by(Post.timestamp.desc())
 
@@ -65,6 +57,14 @@ class User(UserMixin, db.Model):
 
     def __repr__(self):
         return '<username: {}, email: {}'.format(self.username, self.email)
+
+
+# The user loader is registered with Flask-Login with the @login.user_loader decorator.
+# The id that Flask-Login passes to the function as an argument is going to be a string,
+# so databases that use numeric IDs need to convert the string to integer as you see above.
+@login.user_loader
+def load_user(id):
+    return User.query.get(int(id))
 
 
 class Post(db.Model):

@@ -54,3 +54,8 @@ class EditProfileForm(FlaskForm):
 # any data? To make this work, the form is going to be empty.
 class EmptyForm(FlaskForm):
     submit = SubmitField('Submit')
+
+
+class PostForm(FlaskForm):
+    post = TextAreaField('post', validators=[DataRequired(), Length(min=10, max=2000)])
+    submit = SubmitField('Submit Post')
