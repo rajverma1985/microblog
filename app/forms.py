@@ -50,5 +50,12 @@ class EditProfileForm(FlaskForm):
                 raise ValidationError("Username in use, please user another username.")
 
 
+# user needs to do is click on "Follow" or "Unfollow", without submitting
+# any data? To make this work, the form is going to be empty.
 class EmptyForm(FlaskForm):
     submit = SubmitField('Submit')
+
+
+class PostForm(FlaskForm):
+    post = TextAreaField('post', validators=[DataRequired(), Length(min=10, max=2000)])
+    submit = SubmitField('Submit Post')
