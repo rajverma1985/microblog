@@ -1,12 +1,11 @@
-import os
-
 from flask import render_template, flash, redirect, url_for, request
 from flask_login import current_user, login_user, login_required, logout_user
 from app import app, db
-from app.forms import LoginForm, RegistrationForm, EditProfileForm, EmptyForm, PostForm
+from app.forms import LoginForm, RegistrationForm, EditProfileForm, EmptyForm, PostForm, ResetPassword
 from app.models import User, Post
 from urllib import parse
 from datetime import datetime
+from app.email import send_email
 
 
 @app.before_request
@@ -77,6 +76,14 @@ def login():
     return render_template('login.html', title='Sign In', form=form)
 
 
+@app.route('/reset')
+def reset_password():
+    form = ResetPassword()
+    if form.validate_on_submit():
+        msg = "test"
+    return render_template('reset_password.html', form=form)
+
+
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
@@ -100,8 +107,8 @@ def user_profile(username):
     page = request.args.get('page', 1, type=int)
     posts = user.posts.order_by(Post.timestamp.desc()).paginate(page=page,
                                                                 per_page=app.config['POSTS_PER_PAGE'], error_out=False)
-    next_p = url_for('user_profile', username=user.username,page=posts.next_num) if posts.has_next else None
-    prev_p = url_for('user_profile', username=user.username,page=posts.prev_num) if posts.has_prev else None
+    next_p = url_for('user_profile', username=user.username, page=posts.next_num) if posts.has_next else None
+    prev_p = url_for('user_profile', username=user.username, page=posts.prev_num) if posts.has_prev else None
     return render_template('profile.html', user=user, posts=posts, form=form, next=next_p, prev=prev_p)
 
 
