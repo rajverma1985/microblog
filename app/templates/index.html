@@ -19,4 +19,10 @@
     {% for post in posts %}
         {% include '_post.html' %}
     {% endfor %}
+{% if prev %}
+<a href="{{prev}}">Prev Page</a>
+{% endif %}
+{% if next %}
+<a href="{{next}}">Next Page</a>
+{% endif %}
 {% endblock %}
