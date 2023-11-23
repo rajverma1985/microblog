@@ -1,3 +1,5 @@
+import os
+
 from flask import render_template, flash, redirect, url_for, request
 from flask_login import current_user, login_user, login_required, logout_user
 from app import app, db
@@ -5,7 +7,7 @@ from app.forms import LoginForm, RegistrationForm, EditProfileForm, EmptyForm, P
 from app.models import User, Post
 from urllib import parse
 from datetime import datetime
-from app.email import send_email
+from app.email import send_password_reset_email
 
 
 @app.before_request
@@ -76,12 +78,18 @@ def login():
     return render_template('login.html', title='Sign In', form=form)
 
 
-@app.route('/reset')
+@app.route('/reset', methods=['GET', 'POST'])
 def reset_password():
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
     form = ResetPassword()
     if form.validate_on_submit():
-        msg = "test"
-    return render_template('reset_password.html', form=form)
+        user = User.query.filter_by(email=form.email.data).first()
+        if user:
+            send_password_reset_email(user)
+        flash("Check your email for password reset instructions")
+        return render_template(url_for('login'))
+    return render_template('reset_password.html', title="Reset Password", form=form)
 
 
 @app.route('/register', methods=['GET', 'POST'])

@@ -1,8 +1,10 @@
-from app import db, login
+from app import db, login, app
 from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from hashlib import md5
+import jwt
+from time import time
 
 followers = db.Table(
     'followers',
@@ -54,6 +56,26 @@ class User(UserMixin, db.Model):
         digest = md5(self.email.lower().encode('utf-8')).hexdigest()
         return 'https://www.gravatar.com/avatar/{}?d=identicon&s={}'.format(
             digest, size)
+
+    # ** IMP ** TO test jwt tokens do this:
+    # >>> import jwt
+    # >>> token = jwt.encode({'a': 'b'}, 'my-secret', algorithm='HS256')
+    # >>> token
+    # 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhIjoiYiJ9.dvOo58OBDHiuSHD4uW88nfJik_sfUHq1mDi4G0'
+    # >> > jwt.decode(token, 'my-secret', algorithms=['HS256'])
+    # {'a': 'b'}
+
+    def get_password_reset_token(self, expires_in=600):
+        jwt.encode({'user_id': self.id, 'expiration': time() + expires_in},
+                   app.config['SECRET_KEY'], algorithm='HS256')
+
+    @staticmethod
+    def verify_password_token(token):
+        try:
+            user_id = jwt.decode(token, app.config['SECRET_KEY'], algorithms='HS256')['user_id']
+        except:
+            return
+        return User.query.get(user_id)
 
     def __repr__(self):
         return '<username: {}, email: {}'.format(self.username, self.email)
