@@ -66,8 +66,8 @@ class User(UserMixin, db.Model):
     # {'a': 'b'}
 
     def get_password_reset_token(self, expires_in=600):
-        jwt.encode({'user_id': self.id, 'expiration': time() + expires_in},
-                   app.config['SECRET_KEY'], algorithm='HS256')
+        return jwt.encode({'user_id': self.id, 'expiration': time() + expires_in},
+                          app.config['SECRET_KEY'], algorithm='HS256')
 
     @staticmethod
     def verify_password_token(token):
