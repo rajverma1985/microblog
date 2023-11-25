@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block content %}
+{% block app_content %}
     <table>
         <tr valign="top">
             <td><img src="{{ user.avatar(128) }}"></td>
@@ -35,10 +35,10 @@
     {% for post in posts %}
         {% include '_post.html' %}
     {% endfor %}
-{% if prev %}
-<a href="{{prev}}">Prev Page</a>
-{% endif %}
-{% if next %}
-<a href="{{next}}">Next Page</a>
-{% endif %}
+    {% if prev %}
+    <a href="{{prev}}">Prev Page</a>
+    {% endif %}
+    {% if next %}
+    <a href="{{next}}">Next Page</a>
+    {% endif %}
 {% endblock %}
