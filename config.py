@@ -8,6 +8,7 @@ load_dotenv()
 
 class Config(object):
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'try-and-you-will-never-guess'
+    LANGUAGES = ['en', 'de', 'es']
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'sqlite:///' + os.path.join(basedir, 'microblog_db.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     MAIL_SERVER = os.environ.get('MAIL_SERVER')

@@ -1,3 +1,4 @@
+import flask_babel
 from flask import render_template, flash, redirect, url_for, request
 from flask_login import current_user, login_user, login_required, logout_user
 from app import app, db
@@ -51,7 +52,6 @@ def explore():
 
 
 @app.route('/about')
-@login_required
 def about_us():
     return render_template('about.html', title='About Us')
 

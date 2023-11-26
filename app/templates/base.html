@@ -34,3 +34,9 @@
         {% block app_content %}{% endblock %}
     </div>
 {% endblock %}
+
+{% block scripts %}
+<!--Here super preserves the contents of this block inherited from base template when we use the super keyword.-->
+    {{ super() }}
+    {{ moment.include_moment() }}
+{% endblock %}
