@@ -9,6 +9,8 @@ import logging
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 from logging.handlers import SMTPHandler, RotatingFileHandler
+from flask_babel import Babel
+from flask import request
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -20,6 +22,13 @@ mail = Mail(app)
 bootstrap = Bootstrap(app)
 moment = Moment(app)
 
+
+# language support for non-native english speakers.
+def get_locale():
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
+
+
+babel = Babel(app, locale_selector=get_locale)
 
 if not app.debug:
     if app.config['MAIL_SERVER']:
