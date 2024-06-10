@@ -1,4 +1,19 @@
-2023-11-17 23:17:45,504 ERROR: Exception on /register [GET] [in /Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/app.py:825]
+2024-06-10 22:41:42,725 INFO: Raj's Blog startup [in /Volumes/data/devtech/projects/pythonProject/microblog/app/__init__.py:59]
+2024-06-10 22:50:14,972 INFO: Raj's Blog startup [in /Volumes/data/devtech/projects/pythonProject/microblog/app/__init__.py:59]
+2024-06-10 22:50:24,847 INFO: <username: raj, email: rjnshvrm@gmail.com has logged in and trying to explore. [in /Volumes/data/devtech/projects/pythonProject/microblog/app/routes.py:45]
+2024-06-10 22:50:54,447 INFO: <username: raj, email: rjnshvrm@gmail.com has logged in and trying to explore. [in /Volumes/data/devtech/projects/pythonProject/microblog/app/routes.py:45]
+2024-06-10 23:15:24,022 INFO: Raj's Blog startup [in /Volumes/data/devtech/projects/pythonProject/microblog/app/__init__.py:59]
+2024-06-10 23:24:58,069 INFO: Raj's Blog startup [in /Volumes/data/devtech/projects/pythonProject/microblog/app/__init__.py:59]
+2024-06-10 23:34:19,070 INFO: Raj's Blog startup [in /Volumes/data/devtech/projects/pythonProject/microblog/app/__init__.py:59]
+2024-06-10 23:34:44,600 INFO: Raj's Blog startup [in /Volumes/data/devtech/projects/pythonProject/microblog/app/__init__.py:59]
+
+
+
+2024-06-10 23:35:39,202 INFO: Raj's Blog startup [in /Volumes/data/devtech/projects/pythonProject/microblog/app/__init__.py:59]
+2024-06-10 23:35:43,626 INFO: <flask_login.mixins.AnonymousUserMixin object at 0x105f2d190> has logged in and trying to read about us. [in /Volumes/data/devtech/projects/pythonProject/microblog/app/routes.py:57]
+
+2024-06-10 23:36:37,123 INFO: Raj's Blog startup [in /Volumes/data/devtech/projects/pythonProject/microblog/app/__init__.py:59]
+2024-06-10 23:36:39,885 ERROR: Exception on /about [GET] [in /Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/app.py:825]
 Traceback (most recent call last):
   File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 1455, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,62 +27,13 @@ Traceback (most recent call last):
   File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 852, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/app/routes.py", line 75, in register
-    return render_template('register.html', title='Register', form=form)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/templating.py", line 152, in render_template
-    return _render(app, template, context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/templating.py", line 133, in _render
-    rv = template.render(context)
-         ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/jinja2/environment.py", line 1301, in render
-    self.environment.handle_exception()
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/jinja2/environment.py", line 936, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/app/templates/register.html", line 2, in top-level template code
-    {% import 'bootstrap/wtf.html' as wtf %}
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/templating.py", line 65, in get_source
-    return self._get_source_fast(environment, template)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/templating.py", line 99, in _get_source_fast
-    raise TemplateNotFound(template)
-jinja2.exceptions.TemplateNotFound: bootstrap/wtf.html
-2023-11-17 23:22:19,098 ERROR: Exception on /register [GET] [in /Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/app.py:825]
-Traceback (most recent call last):
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 1455, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 869, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 867, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/app.py", line 852, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/app/routes.py", line 75, in register
-    return render_template('register.html', title='Register', form=form)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/templating.py", line 152, in render_template
-    return _render(app, template, context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/templating.py", line 133, in _render
-    rv = template.render(context)
-         ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/jinja2/environment.py", line 1301, in render
-    self.environment.handle_exception()
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/jinja2/environment.py", line 936, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/app/templates/register.html", line 2, in top-level template code
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/templating.py", line 65, in get_source
-    return self._get_source_fast(environment, template)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Volumes/data/devtech/projects/pythonProject/microblog/venv/lib/python3.12/site-packages/flask/templating.py", line 99, in _get_source_fast
-    raise TemplateNotFound(template)
-jinja2.exceptions.TemplateNotFound: bootstrap/wtf.html
-2023-11-17 23:43:42,737 INFO: Raj's Blog startup [in /Volumes/data/devtech/projects/pythonProject/microblog/app/__init__.py:42]
-2023-11-17 23:44:03,371 INFO: Raj's Blog startup [in /Volumes/data/devtech/projects/pythonProject/microblog/app/__init__.py:42]
-2023-11-18 11:55:41,774 INFO: Raj's Blog startup [in /Volumes/data/devtech/projects/pythonProject/microblog/app/__init__.py:42]
+  File "/Volumes/data/devtech/projects/pythonProject/microblog/app/routes.py", line 57, in about_us
+    app.logger.info(f"{current_user.username} has logged in and trying to read about us.")
+                       ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'AnonymousUserMixin' object has no attribute 'username'
+2024-06-10 23:37:01,016 INFO: <username: raj, email: rjnshvrm@gmail.com has logged in and trying to explore. [in /Volumes/data/devtech/projects/pythonProject/microblog/app/routes.py:45]
+2024-06-10 23:37:30,366 INFO: Raj's Blog startup [in /Volumes/data/devtech/projects/pythonProject/microblog/app/__init__.py:59]
+2024-06-10 23:37:32,728 INFO: raj has logged in and trying to explore. [in /Volumes/data/devtech/projects/pythonProject/microblog/app/routes.py:45]
+2024-06-10 23:42:54,918 INFO: Raj's Blog startup [in /Volumes/data/devtech/projects/pythonProject/microblog/app/__init__.py:59]
+2024-06-10 23:42:54,918 INFO: Raj's Blog startup [in /Volumes/data/devtech/projects/pythonProject/microblog/app/__init__.py:59]
+2024-06-10 23:43:11,840 INFO: raj has logged in and trying to explore. [in /Volumes/data/devtech/projects/pythonProject/microblog/app/routes.py:45]

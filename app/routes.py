@@ -42,6 +42,7 @@ def index():
 @app.route('/explore')
 @login_required
 def explore():
+    app.logger.info(f"{current_user.username} has logged in and trying to explore.")
     page = request.args.get('page', 1, type=int)
     # The below gives all posts by all users
     posts = Post.query.order_by(Post.timestamp.desc()).paginate(page=page,
@@ -53,6 +54,7 @@ def explore():
 
 @app.route('/about')
 def about_us():
+    app.logger.info(f"{current_user.username} has logged in and trying to read about us.")
     return render_template('about.html', title='About Us')
 
 
@@ -86,7 +88,7 @@ def reset_password_request():
         user = User.query.filter_by(email=form.email.data).first()
         if user:
             send_password_reset_email(user)
-        flash("Check your email for password reset instructions")
+            flash("Check your email for password reset instructions")
         return redirect(url_for('login'))
     return render_template('reset_password_request.html', title="Reset Password", form=form)
 
