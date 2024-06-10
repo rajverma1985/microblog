@@ -12,6 +12,7 @@ from logging.handlers import SMTPHandler, RotatingFileHandler
 from flask_babel import Babel
 from flask import request
 
+
 app = Flask(__name__)
 app.config.from_object(Config)
 db = SQLAlchemy(app)
