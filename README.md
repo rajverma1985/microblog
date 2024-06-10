@@ -7,7 +7,7 @@ The Moment class can handle this. we instantiate this using Moment(app)
 **TO DO:**
 - [ ] Babel not working \< I18n and L10n \>
 - [ ] Ajax support for language translation
-- [ ]
+- [ ] Blueprint support
 
 **Examples:**
 - [x] `moment('2021-06-28T21:45:23Z').format('L')`
